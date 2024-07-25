@@ -93,4 +93,3 @@ async def generate_pathway(request: Request):
     user_responses = request.session.get('user_responses', [])
     bot_response = await get_ai_response(user_responses)
     return templates.TemplateResponse("pathway.html", {"request": request, "pathway_response": bot_response})
-
