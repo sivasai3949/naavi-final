@@ -33,7 +33,8 @@ app.add_middleware(SessionMiddleware, secret_key=SECRET_KEY)
 questions = [
     "Can you briefly describe your current academic journey, including any notable achievements?",
     "Are there specific fields of study or professions you are passionate about? Where do you see yourself in five years, academically or professionally?",
-    "What extracurricular activities or hobbies do you enjoy that align with your academic interests?"
+     "What extracurricular activities or hobbies do you enjoy that align with your academic interests?",
+     "What educational resources or materials do you regularly use?"
 ]
 
 @app.get("/", response_class=HTMLResponse)
@@ -72,7 +73,27 @@ async def generate_pathway(request: Request):
 
 async def get_ai_response(user_responses):
     messages = "\n".join([f"user\n{response}\n" for response in user_responses])
-    final_prompt = "Based on the information provided, generate three distinct pathways for achieving the user's educational and career goals. Each pathway should be clearly separated and include step-by-step guidance."
+    final_prompt = """
+Based on the information provided, generate three distinct pathways for achieving the user's educational and career goals. Each pathway should be clearly separated and include step-by-step guidance. The output should be structured as follows:
+
+Pathway 1: [Title]
+ 1. Step 1
+ 2. Step 2
+ 3. Step 3
+ ...
+
+Pathway 2: [Title]
+ 1. Step 1
+ 2. Step 2
+ 3. Step 3
+ ...
+
+Pathway 3: [Title]
+ 1. Step 1
+ 2. Step 2
+ 3. Step 3
+ ...
+"""
 
     messages += f"assistant\n{final_prompt}\n"
 
@@ -88,8 +109,20 @@ async def get_ai_response(user_responses):
     except ClientError as e:
         raise HTTPException(status_code=500, detail=f"Error generating AI response: {e}")
 
-@app.get("/generate_pathway", response_class=HTMLResponse)
-async def generate_pathway(request: Request):
-    user_responses = request.session.get('user_responses', [])
-    bot_response = await get_ai_response(user_responses)
-    return templates.TemplateResponse("pathway.html", {"request": request, "pathway_response": bot_response})
+def format_response(raw_response):
+    lines = raw_response.split('\n')
+    formatted_response = []
+    pathway = []
+
+    for line in lines:
+        if line.startswith("Pathway "):
+            if pathway:
+                formatted_response.append("\n".join(pathway))
+            pathway = [line]
+        else:
+            pathway.append(line.strip())
+
+    if pathway:
+        formatted_response.append("\n".join(pathway))
+    
+    return "\n\n".join(formatted_response)
