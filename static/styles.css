@@ -1,0 +1,205 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #f7f4f4;
+  color: #075cf9;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+main {
+  padding: 8rem; /* Adjust padding as needed */
+  text-align: center;
+}
+
+main h2 {
+  font-size: 1.5rem;
+  margin-bottom: 50px;
+  color: #020568;
+  font-style: italic;
+}
+
+/* Introductory message styling */
+.intro-message-container {
+  display: flex;
+  justify-content: center; /* Center the intro message */
+  margin-bottom: 0px; /* Space below introductory message */
+}
+
+.intro-bubble {
+  background-color: #69cff7;
+  text-align: left;
+  padding: 10px 20px;
+  border-radius: 20px;
+  width: 50%;
+  max-width: 600px; /* Set a maximum width for consistency */
+  overflow: auto;
+  resize: none; /* Ensure it is not resizable */
+}
+
+/* Chat container styling */
+.chat-container {
+  max-width: 600px;
+  margin: 0 auto; /* Center the chat container */
+  padding: 0; /* No padding to prevent wrapping */
+  background: none; /* Remove background */
+  border: none; /* Remove border */
+  box-shadow: none; /* Remove shadow */
+  overflow: auto; /* Allow scrolling */
+}
+
+/* Chat bubbles styling */
+.chat-bubble {
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 20px;
+  max-width: 100%;
+  overflow: auto;
+  display: inline-block; /* Allow bubbles to be on the same line if needed */
+  vertical-align: top; /* Align bubbles at the top */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Apply resizable feature only to chatbot responses */
+.robot-bubble {
+  background-color: #e0e0e0;
+  text-align: left;
+  overflow: auto;
+  display: block; /* Ensure it takes a new line */
+}
+
+.user-bubble {
+  background-color: #4a90e2;
+  color: #fff;
+  text-align: left;
+  resize: vertical; /* Allow resizing */
+  overflow: auto;
+  display: block; /* Ensure it takes a new line */
+  border-radius: 20px; /* Smooth rounded corners */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Form styling for user input */
+.user-input-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Input container styling */
+.input-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Textarea styling */
+textarea {
+  width: 100%;
+  height: 50px;
+  padding: 10px; /* Adjust padding to fit design */
+  border: 2px solid #4a90e2;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: border-color 0.3s;
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+  resize: none; /* Ensure it is not resizable */
+  line-height: 1.5; /* Ensure vertical centering */
+  text-align: left; /* Align text to the left */
+}
+
+textarea::placeholder {
+  color: #999; /* Placeholder text color */
+  padding-top: 5px;
+}
+
+textarea:focus {
+  border-color: #357ab8;
+}
+
+/* Button inside the input container */
+#send-btn {
+  position: absolute;
+  right: 5px;
+  top: 39%;
+  transform: translateY(-50%);
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#send-btn:hover {
+  background-color: #357ab8;
+}
+
+/* Ensure visibility of the "Create Pathway" button */
+#pathway-btn {
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px; /* Ensure some space above */
+  display: block; /* Center button and add space above */
+  margin: 20px auto; /* Center button horizontally */
+  font-size: medium;
+}
+
+.hidden {
+  display: none;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 2rem;
+  left: 3rem;
+}
+
+.logo-icon {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.logo-container p {
+  color: #075cf9;
+  position: relative;
+  top: 3rem;
+  right: 12rem;
+  font-style: italic;
+}
+
+/* For pathway results container */
+.pathway-content {
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: auto; /* Allows scrolling */
+}

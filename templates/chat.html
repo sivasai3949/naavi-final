@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naavi</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="icon" href="/static/favicon.jpg" type="image/x-icon">
+</head>
+<body>
+    <div class="logo-container">
+        <img src="/static/nav_logo.svg" alt="logo Icon" class="logo-icon">
+        <p>The search engine for pathway generation</p>
+    </div>
+    <main>
+        <h2>For crafting a personalized education plan, please summarize your background, educational milestones, aspirations, higher education ambitions, and financial considerations.</h2>
+        
+        <!-- Introductory message -->
+        <div class="intro-message-container">
+            <div class="intro-bubble">{{ intro_message }}</div>
+        </div>
+
+        <!-- Chat container -->
+        <div id="chat-container" class="chat-container">
+            <!-- Chat bubbles will be appended here -->
+        </div>
+
+        <!-- User input form -->
+        <form id="chat-form" class="user-input-form">
+            <div class="input-container">
+                <textarea id="user-input" placeholder="Ask your question" rows="4"></textarea>
+                <button id="send-btn">Send</button>
+            </div>
+        </form>
+        
+
+        <!-- Pathway button -->
+        <button id="pathway-btn">Create Pathway</button>
+    </main>
+    <script src="/static/script.js"></script>
+</body>
+</html>

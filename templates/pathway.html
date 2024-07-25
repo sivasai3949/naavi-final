@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathway Results</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="icon" href="/static/favicon.jpg" type="image/x-icon">
+</head>
+<body>
+    <div class="loader" id="loader"></div>
+
+    <div class="pathway-container hidden" id="content">
+        <header>
+            <h1>Your Pathway Results</h1>
+        </header>
+        <div class="pathway-content">
+            <div class="chat-bubble robot-bubble">{{ pathway_response }}</div>
+        </div>
+        <footer>
+            <button onclick="window.close()">Close</button>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Simulate loading data
+            setTimeout(function() {
+                // Hide the loader
+                document.getElementById('loader').classList.add('hidden');
+                // Show the content
+                document.getElementById('content').classList.remove('hidden');
+            }, 2000); // Adjust the time as needed
+        });
+    </script>
+</body>
+</html>
